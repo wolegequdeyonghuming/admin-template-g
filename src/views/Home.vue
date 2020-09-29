@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div><button @click="toggle">toggle</button> page. home page. home page. home page. home page. home page. home page. </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  export default {
+    name: "Home",
+    methods:{
+      toggle(){
+        this.$store.commit("app/TOGGLE_SIDEBAR")
+      }
+    }
   }
-}
 </script>
+
+<style scoped>
+
+</style>
