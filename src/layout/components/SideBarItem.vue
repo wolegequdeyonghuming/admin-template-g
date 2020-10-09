@@ -60,7 +60,7 @@
     position: relative;
 
     &:hover {
-      background-color: $side-bar-highlight-bg;
+      background-color: $side-bar-hover-bg;
     }
 
     .icon-wrapper i {
@@ -68,6 +68,7 @@
       display: block;
       width: 40px;
       text-align: center;
+      color: $side-bar-icon-color;
     }
     span {
       flex: 1;
@@ -76,7 +77,7 @@
 
 
     &.active {
-      background-color: $side-bar-highlight-bg;
+      background-color: $side-bar-active-bg;
       color: $side-bar-active-color;
       &:before{
         flex: none;
@@ -84,7 +85,10 @@
         content: "";
         width: 2px;
         height: 100%;
-        background-color: $side-bar-active-color;
+        background-color: $side-bar-active-border-color;
+      }
+      .icon-wrapper i {
+        color: $side-bar-icon-active-color;
       }
     }
   }

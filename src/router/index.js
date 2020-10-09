@@ -78,7 +78,7 @@ export const constantRoutes = [
     path: '/bbb/',
     component: Layout,
     redirect: '/Home',
-    meta: { title: 'BBB', icon: 'phone', level: 'top' },
+    meta: { title: '重金属监测断面管理', icon: 'phone', level: 'top' },
     children: [{
       path: '/bbb/bbb',
       name: 'HomeB',

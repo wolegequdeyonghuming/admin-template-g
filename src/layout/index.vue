@@ -9,9 +9,8 @@
     <!--</div>-->
     <!---->
     <header>
-      <img :src="logo"/>
-      <h1>系统名</h1>
-      <div style="margin-left: auto"></div>
+      <h1><img :src="logo"/>系统名</h1>
+      <!--<div style="margin-left: auto"></div>-->
 
       <top-menu></top-menu>
       <user-menu></user-menu>
@@ -78,14 +77,20 @@ export default {
       padding: 0 24px;
       align-items: center;
       box-shadow: rgba(0,0,0,0.5) -5px 0 5px;
+      justify-content: space-between;
 
-      img{
-        width: 56px;
-      }
+
       h1 {
         font-size: 24px;
         margin: 0 16px;
         letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+
+        img{
+          width: 48px;
+          margin-right: 20px;
+        }
       }
 
     }

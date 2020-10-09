@@ -4,7 +4,7 @@
 
     <!--父级标题-->
     <div class="side-bar-nested-item-title"
-         :class="{collapse: collapse, active: isCurrent}"
+         :class="{collapse: collapse}"
          @click="collapse = !collapse">
 
       <el-tooltip
@@ -18,6 +18,7 @@
                 placement="right"
                 width="180"
                 :disabled="sidebar.opened"
+                popper-class="side-bar-popper"
                 trigger="click">
 
           <div v-if="meta.icon" slot="reference">
@@ -35,10 +36,12 @@
           </div>
         </el-popover>
       </el-tooltip>
+
       <span>{{meta.title}}</span>
 
       <div class="nested-icon">
-        <i class="mdi" :class="collapse ? 'mdi-chevron-up' : 'mdi-chevron-down'"></i>
+        <i :class="collapse ? 'el-icon-arrow-up' : 'el-icon-arrow-down'"></i>
+        <!--<i class="mdi" :class="collapse ? 'mdi-chevron-up' : 'mdi-chevron-down'"></i>-->
       </div>
     </div>
 
@@ -127,13 +130,13 @@
       font-size: 14px;
 
       &:hover {
-        background-color: $side-bar-highlight-bg;
+        background-color: $side-bar-hover-bg;
       }
       &.collapse{
-        background-color: $side-bar-highlight-bg;
+        //background-color: $side-bar-active-bg;
       }
       &.active{
-        background-color: $side-bar-highlight-bg;
+        background-color: $side-bar-active-bg;
         color: $side-bar-active-color;
         &:before{
           flex: none;
@@ -142,7 +145,10 @@
           width: 2px;
           height: 100%;
           left: 0;
-          background-color: $side-bar-active-color;
+          background-color: $side-bar-active-border-color;
+        }
+        .icon-wrapper i {
+          color: $side-bar-icon-active-color;
         }
       }
 
@@ -153,6 +159,7 @@
       display: block;
       width: 40px;
       text-align: center;
+      color: $side-bar-icon-color;
     }
     .title {
       flex: 1;
@@ -182,17 +189,18 @@
 
       i {
         font-size: 18px;
+        color: $side-bar-icon-color;
       }
       .title{
         font-size: $side-bar-child-font-size;
-        opacity: 0.9;
+        /*opacity: 0.9;*/
       }
 
       &:hover {
-        background-color: $side-bar-highlight-bg;
+        background-color: $side-bar-hover-bg;
       }
       &.active{
-        background-color: $side-bar-highlight-bg;
+        background-color: $side-bar-active-bg;
         color: $side-bar-active-color;
         &:before{
           flex: none;
@@ -201,12 +209,15 @@
           width: 2px;
           height: 100%;
           left: 0;
-          background-color: $side-bar-active-color;
+          background-color: $side-bar-active-border-color;
+        }
+        i {
+          color: $side-bar-icon-active-color;
         }
       }
     }
     .side-bar-nested-item-collapse{
-      background-color: $side-bar-highlight-bg;
+      background-color: $side-bar-child-bg;
     }
   }
 
@@ -227,7 +238,7 @@
     }
     .title{
       font-size: $side-bar-child-font-size;
-      opacity: 0.9;
+      /*opacity: 0.9;*/
     }
 
     &:hover {
@@ -243,7 +254,25 @@
         width: 2px;
         height: 100%;
         left: 0;
-        background-color: $side-bar-active-color;
+        background-color: $side-bar-active-border-color;
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+  @import "../../style/variables";
+
+  .side-bar-popper{
+    background-color: $side-bar-background;
+
+    .side-bar-nested-item-children{
+      &:hover {
+        background-color: $side-bar-hover-bg;
+      }
+      &.active {
+        background-color: $side-bar-active-bg;
+        color: $side-bar-active-color;
       }
     }
   }

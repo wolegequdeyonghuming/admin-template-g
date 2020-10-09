@@ -8,12 +8,17 @@
               v-if="childrenItem(item).length>0"
               :key="index">
         <div class="top-menu-item" :class="activeItem(item) && 'active'">
-          <i class="mdi" :class="'mdi-'+item.meta.icon"></i>
+          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon"></i>
           <span>{{item.meta.title}}</span>
+          <i class="el-icon-arrow-down el-icon--right"></i>
         </div>
 
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item v-for="child in childrenItem(item)" :key="child.path" :command="child.path">
+        <el-dropdown-menu slot="dropdown" :appendToBody="false">
+          <el-dropdown-item
+                  v-for="child in childrenItem(item)"
+                  :key="child.path"
+                  :command="child.path"
+                  :class="activeItem(item) && 'active'">
             {{child.meta.title}}
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -21,7 +26,7 @@
 
       <div v-else :key="index">
         <router-link class="top-menu-item" :class="activeItem(item) && 'active'" :to="item.path">
-          <i class="mdi" :class="'mdi-'+item.meta.icon"></i>
+          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon"></i>
           <span>{{item.meta.title}}</span>
         </router-link>
       </div>
@@ -72,10 +77,11 @@
 
     .top-menu-item{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      width: 80px;
+      /*width: 120px;*/
+      padding: 0 16px;
       height: 100%;
       color: $header-color;
       position: relative;
@@ -83,11 +89,11 @@
 
       &:hover{
         cursor: pointer;
-        background-color: rgba(255,255,255,0.1);
+        background-color: $header-active-bg-color;
       }
       &.active{
-        background-color: rgba(255,255,255,0.1);
-        color: $menu-highlight-color;
+        background-color: $header-active-bg-color;
+        color: $menu-active-color;
 
         &:after{
           content: "";
@@ -95,16 +101,38 @@
           position: absolute;
           width: 100%;
           height: 4px;
-          background-color: $menu-highlight-color;
+          background-color: $header-active-border-color;
           bottom: 0;
         }
       }
 
-      i {
+      .menu-icon{
         font-size: 20px;
+        margin-right: 10px;
+        color: $menu-icon-color;
       }
       span{
 
+      }
+    }
+
+    ::v-deep .el-dropdown-menu{
+      left: 0 !important;
+      width: 100% !important;
+      background-color: $header-bg-color;
+      margin-top: 4px;
+
+      .popper__arrow{
+        display: none;
+      }
+      .el-dropdown-menu__item{
+        color: $header-color !important;
+        &:hover {
+          background-color: $header-active-bg-color;
+        }
+        &.active {
+          background-color: $menu-active-bg-color;
+        }
       }
     }
   }

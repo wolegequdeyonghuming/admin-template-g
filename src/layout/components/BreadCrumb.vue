@@ -67,7 +67,7 @@
     height: 36px;
     display: flex;
     align-items: center;
-    box-shadow: rgba(0,0,0,0.3) 0 1px 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 3px 0px 3px;
 
     .icon-wrapper{
       width: 56px;
