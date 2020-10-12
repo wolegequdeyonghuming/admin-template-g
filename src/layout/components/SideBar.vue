@@ -92,7 +92,7 @@
     background-color: $side-bar-background;
     box-shadow: rgba(0,0,0,0.5) 0 5px 5px;
     transition: width 0.3s;
-    padding: 0 8px;
+    /*padding: 0 8px;*/
     height: calc(100vh - 64px);
     overflow-y: auto;
 

@@ -1,3 +1,4 @@
+/*标题栏*/
 $header-color: white;
 $header-bg-color: #283142;
 $header-active-bg-color: rgba(0, 0, 0, 0.3);
@@ -6,6 +7,7 @@ $menu-icon-color: dodgerblue;
 $menu-active-color: white;
 $menu-active-bg-color: dodgerblue;
 
+/*左侧树菜单*/
 $side-bar-width: 180px;
 $side-bar-background: white;
 $side-bar-icon-color: dodgerblue;
@@ -19,9 +21,11 @@ $side-bar-title-font-size: 14px;
 $side-bar-child-bg: #f5f5f5;
 $side-bar-child-font-size: 14px;
 
+/*滚动条样式*/
 $scrollbar-width: 4px;
 $scrollbar-track-bg: rgba(0,0,0,0.1);
 $scrollbar-thumb-bg: rgba(0,0,0,0.4);
 
+/*面包屑*/
 $bread-crumb-icon-color: #999;
 $bread-crumb-text-color: #999

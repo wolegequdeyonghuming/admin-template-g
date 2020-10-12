@@ -56,7 +56,7 @@
     cursor: pointer;
     overflow-x: hidden;
     white-space: nowrap;
-    margin: 8px 0;
+    /*margin: 8px 0;*/
     position: relative;
 
     &:hover {

@@ -8,7 +8,7 @@
               v-if="childrenItem(item).length>0"
               :key="index">
         <div class="top-menu-item" :class="activeItem(item) && 'active'">
-          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon"></i>
+          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon" v-if="item.meta.icon"></i>
           <span>{{item.meta.title}}</span>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </div>
@@ -26,7 +26,7 @@
 
       <div v-else :key="index">
         <router-link class="top-menu-item" :class="activeItem(item) && 'active'" :to="item.path">
-          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon"></i>
+          <i class="mdi menu-icon" :class="'mdi-'+item.meta.icon" v-if="item.meta.icon"></i>
           <span>{{item.meta.title}}</span>
         </router-link>
       </div>

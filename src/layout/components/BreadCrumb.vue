@@ -1,5 +1,5 @@
 <template>
-  <div class="app-breadcrumb" v-show="!$route.meta.hideBreadCrumb">
+  <div class="app-breadcrumb" v-show="!$route.meta.breadcrumb">
 
     <div class="icon-wrapper" @click="$store.commit('app/TOGGLE_SIDEBAR')">
       <i class="mdi mdi-menu-open"></i>
@@ -64,7 +64,7 @@
   .app-breadcrumb {
     font-size: 14px;
     width: 100%;
-    height: 36px;
+    height: 40px;
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.3) 3px 0px 3px;
